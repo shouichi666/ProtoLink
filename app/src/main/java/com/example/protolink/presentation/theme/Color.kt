@@ -1,4 +1,4 @@
-package com.example.protolink.ui.theme
+package com.example.protolink.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
