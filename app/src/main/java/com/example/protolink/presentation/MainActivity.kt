@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ProtoLinkTheme {
-                AppNavigation()
+                Root()
             }
         }
     }
