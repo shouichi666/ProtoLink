@@ -21,7 +21,14 @@ fun Root() {
     val navController = rememberNavController()
 
     Scaffold(
-        bottomBar = { RootBottomBar(navController = navController) },
+        bottomBar = {
+            val currentBackStack by navController.currentBackStackEntryAsState()
+            val currentRoute = currentBackStack?.destination?.route
+
+            if (currentRoute != Route.HomeGroup.Form.route) {
+                RootBottomBar(navController = navController)
+            }
+        },
     ) { insetPadding ->
         AppNavHost(
             modifier = Modifier.padding(bottom = insetPadding.calculateBottomPadding()),

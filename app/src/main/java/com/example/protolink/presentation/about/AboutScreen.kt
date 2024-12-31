@@ -13,8 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.protolink.presentation.home.AboutViewModelImp
-import com.example.protolink.presentation.home.FakeAboutViewModel
+import com.example.protolink.presentation.about.AboutViewModelImp
+import com.example.protolink.presentation.about.FakeAboutViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

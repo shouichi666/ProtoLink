@@ -17,8 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.protolink.presentation.home.DetailViewModelImp
-import com.example.protolink.presentation.home.FakeDetailViewModel
+import com.example.protolink.presentation.detail.DetailViewModelImp
+import com.example.protolink.presentation.detail.FakeDetailViewModel
 
 @Composable
 fun DetailScreen(
@@ -30,7 +30,7 @@ fun DetailScreen(
         topBar = { DetailScreenTopBar(bookId = bookId, navigateBack = navigateBack) },
     ) { insetPadding ->
         DetailScreenContent(
-            modifier = Modifier.padding(paddingValues = insetPadding)
+            modifier = Modifier.padding(paddingValues = insetPadding),
         )
     }
 }

@@ -1,4 +1,4 @@
-package com.example.protolink.presentation.about
+package com.example.protolink.presentation.form
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-abstract class AboutViewModel : ViewModel() {
+abstract class FormViewModel : ViewModel() {
     sealed class State {
         data class Login(
             val token: String,
@@ -19,21 +19,21 @@ abstract class AboutViewModel : ViewModel() {
 }
 
 @HiltViewModel
-class AboutViewModelImp @Inject constructor(
+class FormViewModelImp @Inject constructor(
     private val repository: TemplateRepository,
-) : AboutViewModel() {
+) : FormViewModel() {
     override val state: MutableStateFlow<State>
         get() = _state
 
     private val _state = MutableStateFlow<State>(State.Login(""))
 
     init {
-        println("AboutViewModel init()")
+        println("FormViewModel init()")
         viewModelScope.launch { repository.getT() }
     }
 }
 
-class FakeAboutViewModel : AboutViewModel() {
+class FakeFormViewModel : FormViewModel() {
     override val state: MutableStateFlow<State>
         get() =
             MutableStateFlow(

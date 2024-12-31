@@ -1,4 +1,4 @@
-package com.example.protolink.presentation.home
+package com.example.protolink.presentation.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

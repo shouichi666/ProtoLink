@@ -2,6 +2,7 @@ package com.example.protolink.presentation
 
 import AboutScreen
 import DetailScreen
+import FormScreen
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Settings
@@ -30,6 +31,8 @@ sealed class Route(
 
             fun getBookId(backStackEntry: NavBackStackEntry) = backStackEntry.arguments!!.getInt("detailId")
         }
+
+        data object Form : Route("form")
     }
 
     data object About : Route("about")
@@ -78,6 +81,14 @@ fun AppNavHost(
                 DetailScreen(
                     bookId = Route.HomeGroup.Detail.getBookId(backStackEntry),
                     navigateBack = { navController.popBackStack() },
+                )
+            }
+
+            composable(
+                Route.HomeGroup.Form.route,
+            ) {
+                FormScreen(
+                    navController = navController,
                 )
             }
         }
