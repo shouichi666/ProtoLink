@@ -19,7 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = hiltViewModel(),
+    viewModel: HomeViewModelImp = hiltViewModel(),
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -53,7 +53,10 @@ private fun HomeScreenContent(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun HomeScreenPreview() {
+fun HomeScreenPreview(
+    modifier: Modifier = Modifier,
+    viewModel: FakeLoginViewModel = FakeLoginViewModel(),
+) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = { HomeScreenTopBar() },

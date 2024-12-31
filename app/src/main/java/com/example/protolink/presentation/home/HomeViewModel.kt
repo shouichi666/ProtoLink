@@ -19,30 +19,24 @@ abstract class HomeViewModel : ViewModel() {
 }
 
 @HiltViewModel
-class HomeViewModelImp
-    @Inject
-    constructor(
-        private val repository: TemplateRepository,
-    ) : HomeViewModel() {
-        override val state: MutableStateFlow<State>
-            get() = _state
+class HomeViewModelImp @Inject constructor(
+    private val repository: TemplateRepository,
+) : HomeViewModel() {
+    override val state: MutableStateFlow<State>
+        get() = _state
 
-        private val _state = MutableStateFlow<State>(State.Login(""))
+    private val _state = MutableStateFlow<State>(State.Login(""))
 
-        init {
-            println("HomeViewModel init()")
-            viewModelScope.launch { repository.getT() }
-        }
+    init {
+        println("HomeViewModel init()")
+        viewModelScope.launch { repository.getT() }
     }
+}
 
-class FakeLoginViewModel
-    @Inject
-    constructor(
-        private val repository: TemplateRepository,
-    ) : HomeViewModel() {
-        override val state: MutableStateFlow<State>
-            get() =
-                MutableStateFlow(
-                    State.Login("Fake Success! UseCase will return login token."),
-                )
-    }
+class FakeLoginViewModel : HomeViewModel() {
+    override val state: MutableStateFlow<State>
+        get() =
+            MutableStateFlow(
+                State.Login("Fake Success! UseCase will return login token."),
+            )
+}
